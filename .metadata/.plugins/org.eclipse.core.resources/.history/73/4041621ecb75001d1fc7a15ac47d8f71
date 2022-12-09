@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EMP_LIST</title>
+</head>
+<body>
+	EMP_LIST
+	<table border="1">
+		<tr>
+			<th>사번</th>
+			<th>이름</th>
+			<th>성별</th>
+			<th>주소</th>
+		</tr>
+		{% for e in list %}
+	   	<tr>
+    		<td><a href="emp_detail?e_id={{e.e_id}}">{{e.e_id}}</a></td>
+    		<td><a href="">{{e.e_name}}</a></td>
+    		<td><a href="">{{e.sex}}</a></td>
+    		<td><a href="">{{e.addr}}</a></td>
+	    </tr> 
+	   	{% endfor %}
+	</table>
+	<input type="button" value="추가">
+</body>
+</html>

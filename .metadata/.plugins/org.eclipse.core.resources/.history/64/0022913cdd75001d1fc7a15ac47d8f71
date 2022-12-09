@@ -1,0 +1,13 @@
+import psycopg2
+
+
+class DaoMem:
+    def __init__(self):
+        self.conn = psycopg2.connect(host='localhost', dbname='python',user='postgres',password='python',port=5432)
+        self.cur = self.conn.cursor() #java의 statement
+        
+        
+if __name__ == '__main__':
+    ds = DaoEmp()
+    cnt = ds.select(2)
+    print(cnt)

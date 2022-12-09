@@ -1,0 +1,16 @@
+from flask import Flask, json
+from flask.globals import request
+from flask import Flask, render_template
+from day10.dao_emp import DaoEmp
+
+app = Flask(__name__)
+
+@app.route('/emp_list')
+def emp_list():
+    ds = DaoEmp()
+    list = ds.selects()
+    #return str(dlist)
+    return render_template('emp_list.html',list=list)
+
+if __name__ == '__main__':
+    app.run(debug=True)

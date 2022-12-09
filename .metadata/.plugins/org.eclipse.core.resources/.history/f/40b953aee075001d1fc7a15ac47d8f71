@@ -1,0 +1,15 @@
+from flask import Flask, json
+from flask.globals import request
+from flask import Flask, render_template
+from day11.dao_mem import DaoMem
+
+app = Flask(__name__)
+
+@app.route('/mem_list')
+def mem_list():
+    dm = DaoMem()
+    list = dm.selects()
+    return render_template('mem_list.html',list=list)
+
+if __name__ == '__main__':
+    app.run(debug=True)

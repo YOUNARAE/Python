@@ -1,0 +1,16 @@
+package day14;
+
+public class MyFunc {
+
+	public static void showNum() {
+		for(int i=1;i<=100000;i++) {
+			if(i%100==0) {				
+				System.out.print(i+"/n");
+			}
+		}
+	}
+	
+	public static void main(String[] args) {
+		showNum();	
+	}
+}

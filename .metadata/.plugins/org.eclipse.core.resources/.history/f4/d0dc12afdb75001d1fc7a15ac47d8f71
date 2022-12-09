@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EMP_Detail</title>
+<script type="text/javascript">
+	function fn_edit(){
+		var e_id = "{{emp.e_id}}";
+		location.href="emp_edit?e_id="+e_id;
+	}
+/* 	function fn_remove(){
+		var e_id = "{{emp.e_id}}";
+		location.href="emp_delete?e_id="+e_id;
+	} */
+	function fn_remove(){
+		var result = confirm("정말로 삭제하시겠습니까?");
+		if(result){
+			var e_id = "{{emp.e_id}}";
+			document.frm.submit();
+			location.href="emp_list";
+		}else{
+		    alert("삭제가 취소되었습니다");
+		}
+	}
+</script>
+</head>
+<body>
+EMP_DETAIL
+<form action="emp_delete"  name="frm" method="post">
+	<input type="hidden" name="e_id" value="{{emp.e_id}}">
+</form>
+<table border="1">
+	<tr>
+		<td>사번</td>
+		<td>{{emp.e_id}}</td>
+	</tr>
+	<tr>
+		<td>이름</td>
+		<td>{{emp.e_name}}</td>
+	</tr>
+	<tr>
+		<td>성별</td>
+		<td>{{emp.sex}}</td>
+	</tr>
+	<tr>
+		<td>주소</td>
+		<td>{{emp.addr}}</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" value="수정" onclick="fn_edit()"/>
+			<input type="button" value="삭제" onclick="fn_remove()"/>	
+		</td>
+	</tr>
+</table>
+</body>
+</html>

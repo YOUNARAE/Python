@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MEM Edit</title>
+</head>
+<body>
+MEM_EDIT
+<form action="mem_edit_act" method="post">
+	<table border="1">
+		<tr>
+			<td>사번</td>
+			<td><input type="text" name="m_id" value="{{mem.m_id}}"></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text" name="m_nm"  value="{{mem.m_nm}}"></td>
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td><input type="text" name="tel" value="{{mem.tel}}"></td>
+		</tr>
+		<tr>
+			<td>주소</td>
+			<td><input type="text" name="ymd" value="{{mem.ymd}}"></td>
+		</tr>
+		<tr>
+			<td>
+				<input type="submit" value="실행">
+			</td>
+		</tr>
+	</table>
+</form>	
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1" width="300px">
+		<tr>
+			<td>아이디</td>
+			<td>이름</td>
+			<td>성별</td>
+			<td>주소</td>
+		</tr>
+		{% for i in list %}
+      		{{i}} 
+    	{% endfor %}<br/>
+		{% for i in list %}
+	   	<tr>
+    		<td>{{i.col01}}</td>
+    		<td>{{i.col02}}</td>
+    		<td>{{i.col03}}</td>
+	    </tr> 
+	   	{% endfor %}
+	
+	</table>
+</body>
+</html>

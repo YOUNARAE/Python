@@ -1,0 +1,13 @@
+package day14;
+
+public class MyThre extends Thread{
+	
+	@Override
+	public static void showNum(){
+
+	}
+	
+	public static void main(String[] args) {
+		showNum();
+	}
+}

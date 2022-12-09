@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EMP ADD</title>
+</head>
+<body>
+EMP_ADD
+	<form>
+		<table border="1">
+			<tr>
+				<td>사번</td>
+				<td></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

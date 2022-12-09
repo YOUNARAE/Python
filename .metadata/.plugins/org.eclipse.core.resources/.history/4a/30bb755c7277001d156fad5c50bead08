@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+function fn_list() {
+	axios.post('/ajax_teacher_list', {
+
+	})
+	.then(function(res) {
+		console.log(res.data.list[0]);
+		var list = res.data.list;
+		var html = "";
+		for(var i=0;i<list.length;i++){
+			var t = list[i];
+			html += `
+			<tr>
+				<td><a href="javascript:fn_one('${t.t_id}')">${t.t_id}</a></td>
+				<td><a href="">${t.t_name}</a></td>
+				<td><a href="">${t.mobile}</a></td>
+				<td><a href="">${t.addr}</a></td>
+			</tr>
+			`;
+		}
+		
+        var obj = document.querySelector("#my_tbody");
+        obj.innerHTML=html;
+	});
+}
+
+</script>
+<body onload="fn_list()">
+
+
+</body>
+</html>

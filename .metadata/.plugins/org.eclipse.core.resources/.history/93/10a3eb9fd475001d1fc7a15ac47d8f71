@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EMP ADD</title>
+</head>
+<body>
+EMP_ADD
+	<form>
+		<table border="1">
+			<tr>
+				<td>사번</td>
+				<td><input type="text" name="" value=""></td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>성별</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>주소</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><input tyep="button" value="등록"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

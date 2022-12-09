@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1" width="300px">
+		<tr>
+			<th>사번</th>
+			<th>이름</th>
+			<th>성별</th>
+			<th>주소</th>
+		</tr>
+		{% for e in list %}
+	   	<tr>
+    		<td>{{e.e_id}}</td>
+    		<td>{{e.e_name}}</td>
+    		<td>{{e.sex}}</td>
+    		<td>{{e.addr}}</td>
+	    </tr> 
+	   	{% endfor %}
+	</table>
+	<input type="button" value="추가">추가</button>
+</body>
+</html>

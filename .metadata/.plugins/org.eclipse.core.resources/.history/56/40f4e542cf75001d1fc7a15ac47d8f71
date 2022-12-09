@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EMP Edit</title>
+<script type="text/javascript">
+</script>
+</head>
+<body>
+EMP_EDIT
+<form>
+	<table border="1">
+		<tr>
+			<td>사번</td>
+			<td><input type="text" name="" value="{{emp.e_id}}"></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text" name=""  value="{{emp.e_name}}"></td>
+		</tr>
+		<tr>
+			<td>성별</td>
+			<td><input type="text" name="" value="{{emp.sex}}"></td>
+		</tr>
+		<tr>
+			<td>주소</td>
+			<td><input type="text" name="" value="{{emp.addr}}"></td>
+		</tr>
+	</table>
+	<input type=""
+</form>	
+</body>
+</html>

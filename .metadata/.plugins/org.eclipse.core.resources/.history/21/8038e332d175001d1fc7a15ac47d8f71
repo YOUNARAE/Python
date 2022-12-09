@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function fn_edit(){
+		var e_id = "{{emp.e_id}}";
+		location.href="emp_edit?e_id="+e_id;
+	}
+</script>
+</head>
+<body>
+	
+</body>
+</html>

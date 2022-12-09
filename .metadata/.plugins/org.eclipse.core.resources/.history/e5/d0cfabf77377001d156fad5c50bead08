@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+</head>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="text/javascript">
+function fn_num(){
+	axios.post('/ajax_thread1', {})
+	.then(function(res) {
+		for(var i=1;i<100000;i++){
+			console.log(i);
+		}	
+	});
+	
+}
+
+function fn_asciir(){
+	axios.post('/ajax_thread2', {})
+	.then(function(res) {
+		for(var i=1;i<100000;i++){
+			console.log(String.fromCharCode(i));
+		}	
+	});
+}
+function fn_main() {
+	fn_num();
+	fn_asciir();
+}
+</script>
+<body onload="fn_main()">
+
+
+</body>
+</html>

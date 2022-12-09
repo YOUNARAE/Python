@@ -1,0 +1,45 @@
+import psycopg2
+
+class DaoSample:
+    def __init__(self):
+        self.conn = psycopg2.connect(host='localhost', dbname='python',user='postgres',password='python',port=5432)
+        self.cur = self.conn.cursor() #java의 statement
+    
+    def selects(self):
+        mydict = []
+        self.cur.execute("SELECT col01 FROM SAMPLE") 
+        rows = self.cur.fetchall()
+        for r in rows:
+            #print(i)
+             mydict.append({'col01':r[0],'col02':r[1],'col03':r[2]})
+        
+        mydict.append({'col01':'4','col02':'4','col03':'4'})
+        return mydict
+    
+    def select(self,col01):
+        sql = f"""
+                SELECT 
+                    col01,col2,col03 
+                FROM 
+                    sample
+                WHERE 
+                    col01='{col01}'
+        """
+        self.cur.execute(sql) 
+        rows = self.cur.fetchall()
+        r = rows[0]
+        ret = {'col01':r[0],'col02':r[1],'col03':r[2]}
+        return ret
+    
+    def insert(self,col01,col02,col03):
+        return 1
+    
+    def __del__(self):
+        self.cur.close()
+        self.conn.close()
+        
+    
+if __name__ == '__main__':
+    ds = DaoSample()
+    cnt = ds.select('1')
+    print(cnt)

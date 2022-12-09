@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EMP_LIST</title>
+<script type="text/javascript">
+function fn_add(){
+	location.href="mem_add";
+}
+</script>
+</head>
+<body>
+	EMP_LIST
+	<table border="1">
+		<tr>
+			<th>회원번호</th>
+			<th>이름</th>
+			<th>전화번호</th>
+			<th>생년월일</th>
+		</tr>
+		{% for m in list %}
+	   	<tr>
+    		<td><a href="mem_detail?e_id={{m.m_id}}">{{m.m_id}}</a></td>
+    		<td>{{m.m_nm}}</td>
+    		<td>{{m.tel}}</td>
+    		<td>{{m.ymd}}</td>
+	    </tr> 
+	   	{% endfor %}
+	</table>
+	<input type="button" value="추가" onclick="fn_add()">
+</body>
+</html>

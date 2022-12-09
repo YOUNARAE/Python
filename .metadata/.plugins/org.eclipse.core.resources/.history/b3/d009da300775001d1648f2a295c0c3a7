@@ -1,0 +1,13 @@
+import psycopg2
+import psycopg2.extras
+
+conn = psycopg2.connect(host='localhost', dbname='python',user='postgres',password='python',port=5432)
+cur = conn.cursor(cursor_factory=psycopg2.extras.DictCursor)
+
+cur.execute("SELECT col01,col02,col03 FROM SAMPLE") 
+rows = cur.fetchall() #하나씩 가져오지 않고 여러개
+
+print(rows)
+
+cur.close()
+conn.close()

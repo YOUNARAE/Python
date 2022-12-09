@@ -1,0 +1,69 @@
+import psycopg2
+
+class DaoSample:
+    def __init__(self):
+        self.conn = psycopg2.connect(host='localhost', dbname='python',user='postgres',password='python',port=5432)
+        self.cur = self.conn.cursor() #java의 statement
+    
+    def selects(self):
+        mydict = []
+        self.cur.execute("SELECT col01,col2,col03 FROM SAMPLE") 
+        rows = self.cur.fetchall()
+        for r in rows:
+            #print(i)
+             mydict.append({'col01':r[0],'col02':r[1],'col03':r[2]})
+        
+        mydict.append({'col01':'4','col02':'4','col03':'4'})
+        return mydict
+    
+    def select(self,col01):
+        sql = f"""
+                SELECT 
+                    col01,col02,col03 
+                FROM 
+                    sample
+                WHERE 
+                    col01='{col01}'
+        """
+        self.cur.execute(sql) 
+        rows = self.cur.fetchall()
+        r = rows[0]
+        ret = {'col01':r[0],'col02':r[1],'col03':r[2]}
+        return ret
+    
+    def insert(self,col01,col02,col03):
+        sql = f"""
+                INSERT INTO sample 
+                    ( col01, col02, col03 ) 
+                VALUES 
+                    ('{col01}', '{col02}', '{col03}')
+            """
+        
+        self.cur.execute(sql)
+        self.conn.commit()
+        return self.cur.rowcount
+    
+    def update(self,col01,col02,col03):
+       sql = f""" 
+                update sample
+                set 
+                    col02='{col02}',
+                    col03='{col03}'
+                where 
+                    col01='{col01}'
+            """
+      
+        self.cur.execute(sql)
+        self.conn.commit()
+        return self.cur.rowcount
+    
+            
+    def __del__(self):
+        self.cur.close()
+        self.conn.close()
+        
+    
+if __name__ == '__main__':
+    ds = DaoSample()
+    cnt = ds.update('5','5','5')
+    print(cnt)
