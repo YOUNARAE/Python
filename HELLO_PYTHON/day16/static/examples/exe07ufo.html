@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - geometry - cube</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="main.css">
+	</head>
+	<body>
+
+		<!-- Import maps polyfill -->
+		<!-- Remove this when import maps will be widely supported -->
+		<script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+		<script type="importmap">
+			{
+				"imports": {
+					"three": "../build/three.module.js",
+					"three/addons/": "./jsm/"
+				}
+			}
+		</script>
+
+		<script type="module">
+
+			import * as THREE from 'three';
+
+			let camera, scene, renderer;
+			let mesh;
+			let mesh2;
+			let mesh3;
+			let mesh4;
+			let mesh5;
+			let mesh6;
+			let mesh7;
+			let mesh8;
+			let mesh9;
+
+			init();
+			animate();
+
+			function init() {
+
+				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
+				camera.position.z = 400;
+				camera.position.y = 200;
+				console.log(camera.position);
+
+				scene = new THREE.Scene();
+
+				const geometry = new THREE.CylinderGeometry();
+				const material = new THREE.MeshBasicMaterial();
+				material.wireframe = true;
+				
+				mesh = new THREE.Mesh( 
+					   new THREE.CylinderGeometry( 50, 50, 10, 10 ),
+					   new THREE.MeshBasicMaterial( {color:0xff0000} )
+					   );
+				scene.add( mesh );
+				mesh.position.x = -150;
+				
+				mesh2 = new THREE.Mesh( 
+					   new THREE.CylinderGeometry( 50, 50, 10, 10 ),
+					   new THREE.MeshBasicMaterial( {color:0xffffff} )
+					   );
+				scene.add( mesh2 );
+				mesh2.position.x = 0;
+				
+				
+				mesh3 = new THREE.Mesh( 
+					   new THREE.CylinderGeometry( 50, 50, 10, 10 ),
+					   new THREE.MeshBasicMaterial( {color:0xff9900} )
+					   );
+				scene.add( mesh3 );				
+				mesh3.position.x = 150;
+				
+				mesh4 = new THREE.Mesh( 
+					   new THREE.CylinderGeometry( 50, 50, 10, 10 ),
+					   new THREE.MeshBasicMaterial( {color:0xff0000} )
+					   );
+				scene.add( mesh4 );
+				mesh4.position.x = -150;
+				mesh4.position.y = 50;
+				mesh4.position.z = -50;
+				
+				
+				mesh5 = new THREE.Mesh( 
+					   new THREE.CylinderGeometry( 50, 50, 10, 10 ),
+					   new THREE.MeshBasicMaterial( {color:0x00ccff} )
+					   );
+				scene.add( mesh5 );
+				mesh5.position.x = 0;
+				mesh5.position.y = 50;
+				mesh5.position.z = -50;
+				
+				
+				mesh6 = new THREE.Mesh( 
+					   new THREE.CylinderGeometry( 50, 50, 10, 10 ),
+					   new THREE.MeshBasicMaterial( {color:0x889911} )
+					   );
+				scene.add( mesh6 );
+				mesh6.position.x = 150;
+				mesh6.position.y = 50;
+				mesh6.position.z = -50;
+				
+				
+				mesh7 = new THREE.Mesh( 
+					   new THREE.CylinderGeometry( 50, 50, 10, 10 ),
+					   new THREE.MeshBasicMaterial( {color:0xff0000} )
+					   );
+				scene.add( mesh7 );
+				mesh7.position.x = -150;
+				mesh7.position.y = 100;
+				mesh7.position.z = -100;
+				
+				
+				mesh8 = new THREE.Mesh( 
+					   new THREE.CylinderGeometry( 50, 50, 10, 10 ),
+					   new THREE.MeshBasicMaterial( {color:0x00ccff} )
+					   );
+				scene.add( mesh8 );
+				mesh8.position.x = 0;
+				mesh8.position.y = 100;
+				mesh8.position.z = -100;
+				
+				
+				mesh9 = new THREE.Mesh( 
+					   new THREE.CylinderGeometry( 50, 50, 10, 10 ),
+					   new THREE.MeshBasicMaterial( {color:0x889911} )
+					   );
+				scene.add( mesh9 );
+				mesh9.position.x = 150;
+				mesh9.position.y = 100;
+				mesh9.position.z = -100;
+				
+
+
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer.domElement );
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize );
+
+			}
+
+			function onWindowResize() {
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+			
+			var cnt = 0;
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+				
+				mesh.rotation.y += 0.5;
+				mesh.position.y += 5;
+				renderer.render( scene, camera );
+				console.log("cnt",cnt);
+				cnt++;
+
+			}
+			
+			
+			$(function(){ 
+				  $(this).css('-webkit-animation-name','duration');
+			  });
+			});
+
+		</script>
+
+	</body>
+</html>
